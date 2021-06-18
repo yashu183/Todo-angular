@@ -1,0 +1,55 @@
+<!-- <div *ngFor = "let tsk of taskArray" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ tsk.taskName }}</h5>
+      <p class="card-text">{{ tsk.taskDes }}</p>
+      <p style="font-size : 20px;" class='text-muted'>{{ tsk.authorName }}</p>
+    </div>
+  </div> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+  <div class="d-flex flex-row flex-wrap">
+    <div *ngFor = "let tsk of taskArray" class="card p-2 bg-dark text-white mt-3" style="width: 18rem; margin-left : 2rem;">
+        <div class="card-body">
+            <h4 class="card-title">{{ tsk.taskName }}
+                <small><i (click)="deleteTask(tsk)" style="font-size:24px; color : #dc3545; float : right;" class="fa fa-trash"></i></small>
+            </h4>
+        </div>
+        <blockquote>
+            <p style = "font-size: 20px;">{{ tsk.taskDes }}</p>
+            <footer class="blockquote-footer" style="float : right; margin-right: 4px;">
+                <small style="font-size: 20px;" class="text-muted">{{ tsk.authorName }}</small>
+            </footer>
+        </blockquote>
+        <small style = "font-size: 16px;" class="text-muted mb-2">Created on : {{ tsk.created | date : "longDate" }}</small>
+        <button (click)="editTask(tsk)" [routerLink]="['/edit']" routerLinkActive="router-link-active"  class="btn btn-primary btn-block">Edit Task</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noTasks>
+    <p style="font-size : 25px;" class="text-muted">No Task available here!!!</p>
+</ng-template>
+
+<div class="container" *ngIf = "taskArray.length == 0">
+    <p style="font-size : 25px;" class="text-muted">No Task available here!!!</p>
+</div>
+
+<script src="https://kit.fontawesome.com/8e81d008db.js" crossorigin="anonymous"></script>
+
+<!-- <div class="container">
+    <div *ngFor = "let tsk of taskArray" class = "card-body">
+        <div class = "row p-2 border border-primary rounded">
+            <h3 class="card-title taskHeading">{{ tsk.taskName }}
+                <button (click) = "deleteTask(tsk)" class = "btn btn-danger taskClear"><i class="far fa-window-close">X</i></button>
+            </h3>
+            <h5 class="card-text">
+                {{ tsk.taskDes }}
+            </h5>
+        </div> 
+    </div>
+</div> -->
+
+
+<router-outlet></router-outlet>

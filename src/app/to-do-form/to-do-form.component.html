@@ -1,0 +1,43 @@
+<h2 class="text-center mt-3">To-Do-List</h2>
+
+<button style = "font-size : 20px" class = "btn btn-primary m-3" (click)="onClick()">Click here to add the task!!!</button>
+
+<div *ngIf = "showExtended">
+    <h4 class = "text-center">Add New Task</h4>
+    <form action = "#" (ngSubmit) = "onSubmit()" class = "form-group container border border-primary rounded p-2">
+        <label style = "font-size : 20px" for = "taskName">Task Name</label>
+        <input
+            type = "text"
+            class = "form-control"
+            [(ngModel)] = "task.taskName"
+            name = "taskName">
+
+        <label style = "font-size : 20px" for = "taskDescription">Task Description</label>
+        <textarea
+            type = "text-area" 
+            class = "form-control"
+            [(ngModel)] = "task.taskDes"
+            rows = 3
+            name = "taskDescription"></textarea>
+
+        <div class="form-control">
+            <button style = "font-size : 20px" class = "btn btn-primary w-100 mt-1">Add Task</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <div *ngFor = "let tsk of arr" class = "card-body">
+        <div class = "row p-2 border border-primary rounded">
+            <h3 class="card-title taskHeading">{{ tsk.taskName }}
+                <button (click) = "deleteTask(tsk)" class = "btn btn-danger taskClear"><i class="far fa-window-close">X</i></button>
+            </h3>
+            <h5 class="card-text">
+                {{ tsk.taskDes }}
+            </h5>
+        </div> 
+    </div>
+</div>
+
+<p style = "font-size : 20px" class='text-muted text-center mt-3'>By Yashwanth</p>

@@ -1,0 +1,12 @@
+.container{
+    width : 60%;
+}
+
+.taskHeading{
+    position: relative;
+}
+
+.taskClear{
+    position: absolute;
+    left: 90%;
+}
