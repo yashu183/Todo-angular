@@ -5,3 +5,21 @@ i:hover{
 blockquote{
     margin:0px;
 }
+
+.done{
+    opacity: 0.75;
+}
+.customized{
+    background-color: #4CAF50;
+}
+
+.no-content img{
+    margin-top : 17%;
+    margin-left : 47%; 
+}
+
+.no-content p{
+    width : fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

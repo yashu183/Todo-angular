@@ -1,14 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class=" mx-4 navbar-brand" href="#">ToDoApp</a>
-  
-    <div id="navbarSupportedContent">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a style="font-size: 20px;" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link" (click) = "loadAddTask()">Add Task</a>
+        <li class="nav-link nav-item">
+          <a style="font-size: 20px;" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-item nav-link">Add Task</a>
         </li>
         <li class="nav-item">
-          <a style="font-size: 20px;" [routerLink]="['/view']" routerLinkActive="router-link-active"  class="nav-link" (click) = "loadViewTask()" >View Tasks</a>
+          <a style="font-size: 20px;" [routerLink]="['/view']" routerLinkActive="router-link-active"  class="nav-item nav-link">View Tasks</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 20px;" [routerLink]="['/status']" routerLinkActive="router-link-active"  class="nav-item nav-link">Status</a>
         </li>
       </ul>
+    </div>
+  </nav> -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">ToDoApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a style="font-size: 20px;" [routerLink]="['/']" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Add Task</a>
+        <a style="font-size: 20px;" [routerLink]="['/view']" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">View Tasks</a>
+        <a style="font-size: 20px;" [routerLink]="['/status']" routerLinkActive="router-link-active" class="nav-item nav-link" href="#">Status</a>
+      </div>
     </div>
   </nav>

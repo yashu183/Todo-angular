@@ -5,15 +5,14 @@
       <p style="font-size : 20px;" class='text-muted'>{{ tsk.authorName }}</p>
     </div>
   </div> -->
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="container">
   <div class="d-flex flex-row flex-wrap">
-    <div *ngFor = "let tsk of taskArray" class="card p-2 bg-dark text-white mt-3" style="width: 18rem; margin-left : 2rem;">
+    <div *ngFor = "let tsk of taskArray" class="card p-2 bg-dark text-white mt-3" style="width: 18rem; margin-left : 2rem;" [ngClass]="tsk.hasDone ? 'done' : ''">
         <div class="card-body">
             <h4 class="card-title">{{ tsk.taskName }}
-                <small><i (click)="deleteTask(tsk)" style="font-size:24px; color : #dc3545; float : right;" class="fa fa-trash"></i></small>
+                <small><i (click)="deleteTask(tsk)"  style="font-size:24px; color : #dc3545; float : right;" class="fa fa-trash"></i></small>
             </h4>
         </div>
         <blockquote>
@@ -22,8 +21,12 @@
                 <small style="font-size: 20px;" class="text-muted">{{ tsk.authorName }}</small>
             </footer>
         </blockquote>
-        <small style = "font-size: 16px;" class="text-muted mb-2">Created on : {{ tsk.created | date : "longDate" }}</small>
-        <button (click)="editTask(tsk)" [routerLink]="['/edit']" routerLinkActive="router-link-active"  class="btn btn-primary btn-block">Edit Task</button>
+        <small style = "font-size: 14px;" class="text-muted mb-2">Created on : {{ tsk.created | date : "longDate" }}, {{ tsk.created | date : "mediumTime" }}</small>
+        <small *ngIf = "tsk.edited != undefined" style = "font-size: 14px;" class="text-muted mb-2">Edited on : {{ tsk.edited | date : "longDate" }}, {{ tsk.edited | date : "mediumTime" }}</small>
+        <!-- <button (click)="editTask(tsk)" [routerLink]="['/edit']" [queryParams]="{editedInfo : tsk}" routerLinkActive="router-link-active"  class="btn btn-primary btn-block">Edit Task</button> -->
+        <button (click) = "editTask(tsk)" class="btn btn-primary btn-block">Edit Task</button>
+        <button *ngIf = "!tsk.hasDone" (click)="markAsDone(tsk)"  class="btn customized btn-block mt-2">Mark as done</button>
+        <button *ngIf="tsk.hasDone" (click)="markAsUndone(tsk)" class="btn btn-secondary btn-block mt-2">Mark as Undone</button>
     </div>
   </div>
 </div>
@@ -33,7 +36,10 @@
 </ng-template>
 
 <div class="container" *ngIf = "taskArray.length == 0">
-    <p style="font-size : 25px;" class="text-muted">No Task available here!!!</p>
+    <div style="font-size : 25px;" class="text-muted no-content">
+        <img src="../../assets/AddNotesSvg.svg" width="200" height="200" alt="">
+        <p>No Task available here!!!</p>
+    </div>
 </div>
 
 <script src="https://kit.fontawesome.com/8e81d008db.js" crossorigin="anonymous"></script>

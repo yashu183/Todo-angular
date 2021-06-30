@@ -1,6 +1,6 @@
 <h3 class="text-center my-3">Add task here!!!</h3>
 
-<form #taskForm = "ngForm" action = "#" (ngSubmit) = "onSubmit()" class = "container rounded p-2 shadow" style = "border : 2px solid #f1f1f1">
+<form #taskForm = "ngForm" action = "#" (ngSubmit) = "onSubmit()" class = "container w-40 rounded p-2 shadow" style = "border : 2px solid #f1f1f1">
      
     <div class="form-group">
         <label style = "font-size : 20px" for = "author">Author Name</label>
@@ -8,9 +8,10 @@
             type = "text"
             class = "form-control"
             [(ngModel)] = "task.authorName"
-            name = "author">
+            name = "author"
+            id = #author>
     </div>
-    <div>{{ task.authorName }}</div>
+    <!-- <div>{{ task.authorName }}</div> -->
     
     <div class="form-group">
         <label style = "font-size : 20px" for = "taskName">Task Name</label>
@@ -18,7 +19,8 @@
             type = "text"
             class = "form-control"
             [(ngModel)] = "task.taskName"
-            name = "taskName">
+            name = "taskName"
+            #taskName>
     </div>
 
     <div class="from-group mt-2">
@@ -27,15 +29,22 @@
             type = "text-area" 
             class = "form-control"
             [(ngModel)] = "task.taskDes"
-            rows = 3
-            name = "taskDescription"></textarea>
+            rows = 5
+            name = "taskDescription"
+            #taskDes></textarea>
+    </div>
+
+    <div class="hidden from-group">
+        <input type = "hidden" [(ngModel)]="task.edited" name = "edited">
     </div>
 
     <div class="form-group">
         <button style = "font-size : 20px" (click)="onSuccess()" class = "btn btn-primary w-100 mt-2">Add Task</button>
     </div>
+
+    <!-- <div class="form-group">
+        <button style = "font-size : 20px" (click)="edit()" class = "btn btn-primary w-100 mt-2">Add Task</button>
+    </div> -->
 </form>
 
 <simple-notifications></simple-notifications>
-
-<input type = "text" [(ngModel)]="binding">

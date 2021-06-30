@@ -1,0 +1,36 @@
+<!-- <h1>Total Chnaged : {{ totalChanged }}</h1>
+<h2>Completed Chnaged : {{ completedChanged }}</h2>
+<h3>Remainaing Chnaged : {{ pendingChanged }}</h3> -->
+
+<circle-progress class="ttl mt-5"
+[percent]="totalPercent"
+[radius]="90"
+[animation]="true"
+[animationDuration]="900"
+title = "Total Tasks"
+></circle-progress>
+
+
+<circle-progress class="cmp mx-5 mt-5"
+  [percent]="completedPercent"
+  [radius]="90"
+  [animation]="true"
+  [animationDuration]="900"
+  title = "Completed Tasks"
+  outerStrokeColor = #62760C
+  outerStrokeGradientStopColor = #81B214
+></circle-progress>
+
+<circle-progress class="pnd mt-5"
+  [percent]="pendingPercent"
+  [radius]="90"
+  [animation]="true"
+  [animationDuration]="900"
+  title = "Pending Tasks"
+  outerStrokeColor = #810000
+  outerStrokeGradientStopColor = #CE1212
+></circle-progress>
+<br>
+<h4 class="d-inline mt-2" style="margin-left : 27%">Total Tasks : {{ totalChanged }}</h4>
+<h4 class="d-inline mt-2" style = "margin-left: 7%;">completed Tasks : {{ completedChanged }}/{{ totalChanged }}</h4>
+<h4 class="d-inline mt-2" style = "margin-left: 5%;">Pending Tasks : {{ pendingChanged }}/{{ totalChanged }}</h4>

@@ -4,4 +4,5 @@ export interface Task{
     taskDes: string,
     created?: Date,
     edited?: Date,
+    hasDone?: boolean
 }
