@@ -111,4 +111,9 @@ export class DataService {
     console.log(this.tskWIthEdit);
     this.taskSource.next(this.tskWIthEdit);
   }
+  usrLogged : string = '';
+  loggedSuccessfully(usrname : string){
+    this.usrLogged = usrname;
+  }
+
 }

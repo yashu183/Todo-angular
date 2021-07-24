@@ -1,0 +1,26 @@
+<div class="container border border-round shadow mt-5 p-2">
+    <h4 class="text-center">SignUp Form</h4>
+    <form (ngSubmit) = "signupfun()">
+        <div class="form-group">
+          <label style = "font-size: 20px;" for="exampleInputEmail1">User Name</label>
+          <input [(ngModel)]="signupform.username" name = "username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label style = "font-size: 20px;" for="preferedUserName">Prefered User Name</label>
+          <input [(ngModel)]="signupform.preferdUserName" name = "username" type="text" class="form-control" id="preferedUserName" aria-describedby="emailHelp" placeholder="Enter prefered user name">
+        </div>
+        <div class="form-group">
+          <label style = "font-size: 20px;" for="exampleInputPassword1">Password</label>
+          <input [(ngModel)]="signupform.tempPass" name = "password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label style = "font-size: 20px;" for="phnum">Phone Number</label>
+            <input [(ngModel)]="signupform.phnum" name = "phonenumber" type="text" class="form-control" id="phnum" placeholder="Enter ph num with country code">
+        </div>
+        <div class="form-group">
+            <label style = "font-size: 20px;" for="exampleInputEmail1">Email</label>
+            <input [(ngModel)]="signupform.email" name = "email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <button style = "font-size: 20px;" type="submit" class="btn btn-block btn-primary my-2">SignUp</button>
+      </form>
+</div>

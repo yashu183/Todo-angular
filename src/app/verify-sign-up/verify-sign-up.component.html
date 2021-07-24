@@ -1,0 +1,10 @@
+<div class="container border border-round shadow mt-5 p-2">
+    <h4 class="text-center">Verification</h4>
+    <form (ngSubmit) = "verifyFun()">
+        <div class="form-group">
+          <label style = "font-size: 20px;" for="code">User Name</label>
+          <input [(ngModel)]="verifyForm.code" name = "code" type="text" class="form-control" id="code" aria-describedby="emailHelp" placeholder="Enter code">
+        </div>
+        <button style = "font-size: 20px;" type="submit" class="btn btn-block btn-primary my-2">Verify</button>
+      </form>
+</div>

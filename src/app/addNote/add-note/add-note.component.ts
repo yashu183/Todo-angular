@@ -24,7 +24,7 @@ export class AddNoteComponent implements OnInit {
     edited : undefined
   }
   editedInfo : Task = {
-    taskDes : '',
+    taskDes : '', 
     taskName : '',
     authorName : '',
     created : new Date(),

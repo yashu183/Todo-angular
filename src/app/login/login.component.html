@@ -1,0 +1,19 @@
+<div class="container w-50 border border-round shadow mt-5 p-2">
+    <form action="#" (ngSubmit)="loginFun()">
+        <h4 class="text-center">Login Form</h4>
+        <div class="form-group">
+            <label style = "font-size: 20px;" for="username">UserName</label>
+            <input [(ngModel)]="loginForm.username" class="form-control" type = "text" name = "username">
+        </div>
+        <div class="form-group">
+            <label style = "font-size: 20px;" for="password">Password</label>
+            <input [(ngModel)]="loginForm.password" class="form-control" type = "password" name = "password">
+        </div>
+        <div class="form-group my-2">
+            <input style = "font-size: 20px;" class = "btn btn-primary form-control" type="submit" value = "Login">
+        </div>
+    </form>
+    <div style = "font-size : 18px;">
+        new user? <a [routerLink]="['/signup']" routerLinkActive="router-link-active">signup here!!!</a>
+    </div>
+</div>

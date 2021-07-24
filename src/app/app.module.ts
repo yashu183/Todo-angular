@@ -21,6 +21,40 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginComponent } from './login/login.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SignupComponent } from './signup/signup.component';
+import { VerifySignUpComponent } from './verify-sign-up/verify-sign-up.component';
+
+import  Amplify  from 'aws-amplify';
+
+import { LoginAmplifyComponent } from './login-amplify/login-amplify.component';
+import { LogoutAmplifyComponent } from './logout-amplify/logout-amplify.component';
+import { SignupAmplifyComponent } from './signup-amplify/signup-amplify.component';
+import { ChangepassAmplifyComponent } from './changepass-amplify/changepass-amplify.component';
+import { VerifySignUpAmplifyComponent } from './verify-sign-up-amplify/verify-sign-up-amplify.component';
+
+Amplify.configure({
+  "aws_project_region": "us-east-1",
+  "aws_cognito_identity_pool_id": "us-east-1:520e0eb0-e6b5-4c19-8e32-1ad581200337",
+  "aws_cognito_region": "us-east-1",
+  "aws_user_pools_id": "us-east-1_lApQ0VkeX",
+  "aws_user_pools_web_client_id": "49bc90b404qofm7eh2d0fiqoa2",
+  "oauth": {
+      "domain": "todof1b5ba45-f1b5ba45-dev.auth.us-east-1.amazoncognito.com",
+      "scope": [
+          "phone",
+          "email",
+          "openid",
+          "profile",
+          "aws.cognito.signin.user.admin"
+      ],
+      "redirectSignIn": "http://localhost:4200/",
+      "redirectSignOut": "http://localhost:4200/",
+      "responseType": "code"
+  },
+  "federationTarget": "COGNITO_USER_POOLS"
+})
 
 @NgModule({
   declarations: [
@@ -29,7 +63,16 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
     NavComponent,
     AddNoteComponent,
     ViewTasksComponent,
-    StatusComponent
+    StatusComponent,
+    LoginComponent,
+    ChangePasswordComponent,
+    SignupComponent,
+    VerifySignUpComponent,
+    LoginAmplifyComponent,
+    LogoutAmplifyComponent,
+    SignupAmplifyComponent,
+    ChangepassAmplifyComponent,
+    VerifySignUpAmplifyComponent
   ],
   imports: [
     BrowserModule,

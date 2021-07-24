@@ -1,0 +1,32 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<br />
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+         <div class="row myborder">
+            <div *ngIf="isError" class="alert alert-danger" role="alert">
+                Username or password is wrong. Try login again!!!
+            </div>
+             <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Login here!!!</h4><hr>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <input [(ngModel)]="loginFormAmplify.username" size="60" maxlength="255" class="form-control" placeholder="User Name" name="username" id="username" type="text">                                                        
+            </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                <input [(ngModel)]="loginFormAmplify.password" size="60" maxlength="255" class="form-control" placeholder="Password" name="password" id="password" type="password">                                    
+            </div>
+            <div class="row w-100 ml-2">
+                <div class="col-md-12">
+                    <button (click) = "loginAmplify()" class="btn btn-info" style = "width: 40%; margin-left: 3rem;" type="submit">login</button>
+                    <button [routerLink]="['/signupAmplify']" routerLinkActive="router-link-active"  class="btn btn-primary" style = "margin-left: 3rem; width : 40%;" type="submit">signup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

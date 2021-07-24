@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { renderingVars } from '../render/renderingVar';
+import { Router } from '@angular/router';
+
+import Amplify from '@aws-amplify/core';
+import Auth from '@aws-amplify/auth';
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +23,7 @@ export class NavComponent implements OnInit {
     isView : false
   }
 
-  constructor() { }
+  constructor(private route : Router) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +48,15 @@ export class NavComponent implements OnInit {
     isView : this.isView
   }
     this.valuesFromChild.emit(this.renVar);
+  }
+
+  logoutfun(){
+    try{
+      Auth.signOut();
+      this.route.navigate(['']);
+    } catch(error){
+      console.log(error);
+    }
   }
 
 }
